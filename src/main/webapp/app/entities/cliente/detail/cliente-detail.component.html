@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cliente">
+      <h2 data-cy="clienteDetailsHeading"><span jhiTranslate="concesionario5App.cliente.detail.title">Cliente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cliente.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ cliente.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ cliente.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.email">Email</span></dt>
+        <dd>
+          <span>{{ cliente.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ cliente.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.streetAddress">Street Address</span></dt>
+        <dd>
+          <span>{{ cliente.streetAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ cliente.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.city">City</span></dt>
+        <dd>
+          <span>{{ cliente.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.cliente.stateProvince">State Province</span></dt>
+        <dd>
+          <span>{{ cliente.stateProvince }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cliente', cliente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

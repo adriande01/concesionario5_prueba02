@@ -1,0 +1,141 @@
+<div>
+  <h2 id="page-heading" data-cy="VehiculoHeading">
+    <span jhiTranslate="concesionario5App.vehiculo.home.title">Vehiculos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="concesionario5App.vehiculo.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vehiculo"
+        [routerLink]="['/vehiculo/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="concesionario5App.vehiculo.home.createLabel"> Crear nuevo Vehiculo </span>
+      </button>
+
+      <button class="filtro_todos" type="submit" (click)="(itemsPerPage)">
+        <fa-icon icon="check-circle"></fa-icon>
+        <span>Todos</span>
+      </button>
+
+      <button class="filtro_disponibles" type="submit">
+        <fa-icon icon="accessible-icon"></fa-icon>
+        <span>Disponibles</span>
+      </button>
+
+      <button class="filtro_vendidos" type="submit">
+        <fa-icon icon="analytics"></fa-icon>
+        <span>Vendidos</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="vehiculos?.length === 0">
+    <span jhiTranslate="concesionario5App.vehiculo.home.notFound">Ningún Vehiculos encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="vehiculos && vehiculos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modeloName">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.modeloName">Modelo Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="marcaName">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.marcaName">Marca Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="precio">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.precio">Precio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipo">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.tipo">Tipo</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="hibrido">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.hibrido">Hibrido</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let vehiculo of vehiculos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/vehiculo', vehiculo.id, 'view']">{{ vehiculo.id }}</a>
+          </td>
+          <td>{{ vehiculo.modeloName }}</td>
+          <td>{{ vehiculo.marcaName }}</td>
+          <td>{{ vehiculo.precio }}</td>
+          <td jhiTranslate="{{ 'concesionario5App.Combustible.' + vehiculo.tipo }}">{{ vehiculo.tipo }}</td>
+          <td>{{ vehiculo.hibrido ? 'SI' : 'NO' }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" class="reserva">
+                <fa-icon icon="lock"></fa-icon>
+                <span>Reservar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vehiculo', vehiculo.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Vista</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vehiculo', vehiculo.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(vehiculo)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

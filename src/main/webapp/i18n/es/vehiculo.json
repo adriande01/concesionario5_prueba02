@@ -1,0 +1,29 @@
+{
+  "concesionario5App": {
+    "vehiculo": {
+      "home": {
+        "title": "Vehiculos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Vehiculo",
+        "createOrEditLabel": "Crear o editar Vehiculo",
+        "notFound": "Ningún Vehiculos encontrado"
+      },
+      "created": "Un nuevo Vehiculo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vehiculo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vehiculo ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vehiculo {{ id }}?"
+      },
+      "detail": {
+        "title": "Vehiculo"
+      },
+      "id": "ID",
+      "modeloName": "Modelo Name",
+      "marcaName": "Marca Name",
+      "precio": "Precio",
+      "tipo": "Tipo",
+      "hibrido": "Hibrido",
+      "venta": "Venta"
+    }
+  }
+}

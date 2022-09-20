@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vendedor">
+      <h2 data-cy="vendedorDetailsHeading"><span jhiTranslate="concesionario5App.vendedor.detail.title">Vendedor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vendedor.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="concesionario5App.vendedor.firstName" [ngbTooltip]="'concesionario5App.vendedor.help.firstName' | translate"
+            >First Name</span
+          >
+        </dt>
+        <dd>
+          <span>{{ vendedor.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ vendedor.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.email">Email</span></dt>
+        <dd>
+          <span>{{ vendedor.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ vendedor.phoneNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.hireDate">Hire Date</span></dt>
+        <dd>
+          <span>{{ vendedor.hireDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.salary">Salary</span></dt>
+        <dd>
+          <span>{{ vendedor.salary }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vendedor.commissionPct">Commission Pct</span></dt>
+        <dd>
+          <span>{{ vendedor.commissionPct }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vendedor', vendedor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

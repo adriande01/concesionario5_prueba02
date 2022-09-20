@@ -1,0 +1,56 @@
+.reserva:hover {
+  box-sizing: initial;
+  color: #abc858;
+  box-shadow: #dff33098;
+}
+
+.reserva {
+  color: darkgoldenrod;
+  background-color: #f6f4d4;
+  border-radius: 15px;
+  font-size: 1em;
+  line-height: 1em;
+  letter-spacing: 0.04em;
+  display: inline-block;
+}
+
+.filtro_todos {
+  color: #596669;
+  background-color: rgb(212, 220, 224);
+  border-radius: 9px;
+  position: relative;
+}
+
+.filtro_todos:hover {
+  box-sizing: initial;
+  color: #1c0141;
+  box-shadow: #dff33098;
+}
+
+.filtro_disponibles {
+  color: #596669;
+  background-color: rgb(212, 220, 224);
+  border-radius: 9px;
+  position: relative;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+}
+
+.filtro_disponibles:hover {
+  box-sizing: initial;
+  color: #1c0141;
+  box-shadow: #dff33098;
+}
+
+.filtro_vendidos {
+  color: #596669;
+  background-color: rgb(212, 220, 224);
+  border-radius: 9px;
+  position: relative;
+}
+
+.filtro_vendidos:hover {
+  box-sizing: initial;
+  color: #1c0141;
+  box-shadow: #dff33098;
+}

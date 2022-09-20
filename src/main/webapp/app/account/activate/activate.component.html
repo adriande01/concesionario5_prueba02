@@ -1,0 +1,16 @@
+<div>
+  <div class="d-flex justify-content-center">
+    <div class="col-md-8">
+      <h1 jhiTranslate="activate.title">Activación</h1>
+
+      <div class="alert alert-success" *ngIf="success">
+        <span jhiTranslate="activate.messages.success"><strong>Su cuenta ha sido activada.</strong> Por favor, </span>
+        <a class="alert-link" routerLink="/login" jhiTranslate="global.messages.info.authenticated.link">iniciar sesión</a>.
+      </div>
+
+      <div class="alert alert-danger" *ngIf="error" jhiTranslate="activate.messages.error">
+        <strong>Su cuenta no pudo ser activada.</strong> Por favor, utilice el formulario de inscripción para registrarse.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+
+entity Venta {
+	total Double required,
+    fecha LocalDate required
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Cliente {
+	firstName String required,
+	lastName String required,
+	email String,
+	phoneNumber String required,
+    streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+/**
+ * The Vendedor entity.
+ */
+entity Vendedor {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String required,
+	lastName String required,
+	email String required,
+	phoneNumber String required,
+	hireDate Instant required,
+	salary Double required,
+    commissionPct Double required
+	
+}
+
+entity Vehiculo {
+	modeloName String required,
+    marcaName String required,
+    precio Double required,
+    tipo Combustible,
+    hibrido Boolean
+}
+
+enum Combustible {
+	GASOLINA, DIESEL	
+}
+
+relationship OneToOne {
+	 Venta to Vehiculo
+}
+
+relationship ManyToOne {
+	Venta to Cliente,
+    Venta to Vendedor
+}
+
+
+paginate Vendedor, Vehiculo with infinite-scroll
+paginate Venta, Cliente with pagination
+
+service all with serviceImpl

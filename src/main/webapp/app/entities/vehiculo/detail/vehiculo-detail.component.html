@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vehiculo">
+      <h2 data-cy="vehiculoDetailsHeading"><span jhiTranslate="concesionario5App.vehiculo.detail.title">Vehiculo</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vehiculo.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.modeloName">Modelo Name</span></dt>
+        <dd>
+          <span>{{ vehiculo.modeloName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.marcaName">Marca Name</span></dt>
+        <dd>
+          <span>{{ vehiculo.marcaName }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.precio">Precio</span></dt>
+        <dd>
+          <span>{{ vehiculo.precio }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.tipo">Tipo</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'concesionario5App.Combustible.' + vehiculo.tipo }}">{{ vehiculo.tipo }}</span>
+        </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.hibrido">Hibrido</span></dt>
+        <dd>
+          <span>{{ vehiculo.hibrido ? 'SI' : 'NO' }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vehiculo', vehiculo.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20220915153840",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vehiculo",
+  "fields": [
+    {
+      "fieldName": "modeloName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "marcaName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "precio",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "Combustible",
+      "fieldValues": "GASOLINA,DIESEL"
+    },
+    {
+      "fieldName": "hibrido",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Vehiculo",
+  "pagination": "infinite-scroll",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "venta",
+      "otherEntityRelationshipName": "vehiculo",
+      "ownerSide": false,
+      "relationshipName": "venta",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
