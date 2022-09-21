@@ -29,6 +29,9 @@
             <column name="hibrido" type="boolean">
                 <constraints nullable="true" />
             </column>
+            <column name="reservado" type="boolean">
+                <constraints nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
     </changeSet>
@@ -55,6 +58,7 @@
             <column name="precio" type="numeric"/>
             <column name="tipo" type="string"/>
             <column name="hibrido" type="boolean"/>
+            <column name="reservado" type="boolean"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

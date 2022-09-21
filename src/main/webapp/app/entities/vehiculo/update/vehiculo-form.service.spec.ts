@@ -25,6 +25,7 @@ describe('Vehiculo Form Service', () => {
             precio: expect.any(Object),
             tipo: expect.any(Object),
             hibrido: expect.any(Object),
+            reservado: expect.any(Object),
           })
         );
       });
@@ -40,6 +41,7 @@ describe('Vehiculo Form Service', () => {
             precio: expect.any(Object),
             tipo: expect.any(Object),
             hibrido: expect.any(Object),
+            reservado: expect.any(Object),
           })
         );
       });

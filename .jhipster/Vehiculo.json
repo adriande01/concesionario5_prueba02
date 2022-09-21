@@ -28,6 +28,10 @@
     {
       "fieldName": "hibrido",
       "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "reservado",
+      "fieldType": "Boolean"
     }
   ],
   "fluentMethods": true,

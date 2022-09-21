@@ -10,26 +10,28 @@ export const sampleWithRequiredData: IVehiculo = {
 };
 
 export const sampleWithPartialData: IVehiculo = {
-  id: 67944,
-  modeloName: 'Grupo wireless override',
-  marcaName: 'Rojo Croacia cliente',
-  precio: 92602,
+  id: 78394,
+  modeloName: 'mindshare Escudo Verde',
+  marcaName: 'Hogar',
+  precio: 23232,
   hibrido: true,
+  reservado: false,
 };
 
 export const sampleWithFullData: IVehiculo = {
-  id: 10947,
-  modeloName: 'Acero Humano La',
-  marcaName: 'deposit plug-and-play Borders',
-  precio: 58793,
+  id: 16547,
+  modeloName: 'Cuentas',
+  marcaName: 'Acero Humano La',
+  precio: 98430,
   tipo: Combustible['DIESEL'],
-  hibrido: true,
+  hibrido: false,
+  reservado: false,
 };
 
 export const sampleWithNewData: NewVehiculo = {
-  modeloName: 'Argentine 1080p',
-  marcaName: 'Extremadura Borders',
-  precio: 64391,
+  modeloName: 'Contabilidad Liechtenstein',
+  marcaName: 'Valenciana Ladrillo payment',
+  precio: 70400,
   id: null,
 };
 

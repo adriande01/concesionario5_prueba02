@@ -1,11 +1,11 @@
-id;modelo_name;marca_name;precio;tipo;hibrido
-1;user-centric Cambridgeshire Hogar;multitarea Monte;15573;GASOLINA;true
-2;Futuro Salchichas;innovative Relacciones;57555;DIESEL;false
-3;Sopa;evolve leading-edge morph;66515;GASOLINA;false
-4;circuit monitor;intangible Dinánmico;69332;GASOLINA;false
-5;Acero Avon;deposit generating;13307;DIESEL;false
-6;SMS;Savings;65055;DIESEL;false
-7;Jefe;synergize Usabilidad;97803;DIESEL;false
-8;embrace Inversor withdrawal;Berkshire Fiji sensor;82455;DIESEL;false
-9;Multi Personal;connect Loan;26510;GASOLINA;true
-10;transmit SQL;partnerships Directo;57622;DIESEL;true
+id;modelo_name;marca_name;precio;tipo;hibrido;reservado
+1;user-centric Cambridgeshire Hogar;multitarea Monte;15573;GASOLINA;true;false
+2;asimétrica e-services indexing;vía;39477;DIESEL;true;false
+3;Sopa;evolve leading-edge morph;66515;GASOLINA;false;false
+4;THX sensor intangible;Sincronizado brand Acero;51626;GASOLINA;true;false
+5;Morado Credit;revolutionary application Savings;65055;DIESEL;false;false
+6;Algodón Representante Cambridgeshire;navigating programming;95627;DIESEL;false;false
+7;Berkshire Fiji sensor;Implementación Multi Personal;52685;DIESEL;false;true
+8;EXE relationships;programming multitarea partnerships;91110;GASOLINA;true;true
+9;quantify Bedfordshire aprovechar;Albania optical;66617;DIESEL;true;false
+10;abierta collaborative;Desarrollador Algodón Card;34823;GASOLINA;true;false

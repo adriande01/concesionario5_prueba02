@@ -7,6 +7,7 @@ export interface IVehiculo {
   precio?: number | null;
   tipo?: Combustible | null;
   hibrido?: boolean | null;
+  reservado?: boolean | null;
 }
 
 export type NewVehiculo = Omit<IVehiculo, 'id'> & { id: null };

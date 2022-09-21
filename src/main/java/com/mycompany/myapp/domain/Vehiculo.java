@@ -43,6 +43,9 @@ public class Vehiculo implements Serializable {
     @Column(name = "hibrido")
     private Boolean hibrido;
 
+    @Column(name = "reservado")
+    private Boolean reservado;
+
     @JsonIgnoreProperties(value = { "vehiculo", "cliente", "vendedor" }, allowSetters = true)
     @OneToOne(mappedBy = "vehiculo")
     private Venta venta;
@@ -127,6 +130,19 @@ public class Vehiculo implements Serializable {
         this.hibrido = hibrido;
     }
 
+    public Boolean getReservado() {
+        return this.reservado;
+    }
+
+    public Vehiculo reservado(Boolean reservado) {
+        this.setReservado(reservado);
+        return this;
+    }
+
+    public void setReservado(Boolean reservado) {
+        this.reservado = reservado;
+    }
+
     public Venta getVenta() {
         return this.venta;
     }
@@ -175,6 +191,7 @@ public class Vehiculo implements Serializable {
             ", precio=" + getPrecio() +
             ", tipo='" + getTipo() + "'" +
             ", hibrido='" + getHibrido() + "'" +
+            ", reservado='" + getReservado() + "'" +
             "}";
     }
 }

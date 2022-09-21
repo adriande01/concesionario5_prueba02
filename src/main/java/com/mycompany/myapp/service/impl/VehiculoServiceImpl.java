@@ -63,6 +63,9 @@ public class VehiculoServiceImpl implements VehiculoService {
                 if (vehiculo.getHibrido() != null) {
                     existingVehiculo.setHibrido(vehiculo.getHibrido());
                 }
+                if (vehiculo.getReservado() != null) {
+                    existingVehiculo.setReservado(vehiculo.getReservado());
+                }
 
                 return existingVehiculo;
             })

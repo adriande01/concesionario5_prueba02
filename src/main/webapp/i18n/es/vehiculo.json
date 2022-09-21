@@ -23,6 +23,7 @@
       "precio": "Precio",
       "tipo": "Tipo",
       "hibrido": "Hibrido",
+      "reservado": "Reservado",
       "venta": "Venta"
     }
   }

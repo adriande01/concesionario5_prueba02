@@ -83,6 +83,12 @@
               <fa-icon class="p-1" icon="sort"></fa-icon>
             </div>
           </th>
+          <th scope="col" jhiSortBy="reservado">
+            <div class="d-flex">
+              <span jhiTranslate="concesionario5App.vehiculo.reservado">Reservado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -101,9 +107,10 @@
           <td>{{ vehiculo.precio }}</td>
           <td jhiTranslate="{{ 'concesionario5App.Combustible.' + vehiculo.tipo }}">{{ vehiculo.tipo }}</td>
           <td>{{ vehiculo.hibrido ? 'SI' : 'NO' }}</td>
+          <td>{{ vehiculo.reservado }}</td>
           <td class="text-end">
             <div class="btn-group">
-              <button type="submit" class="reserva">
+              <button type="submit" class="reserva" (click)="(links)">
                 <fa-icon icon="lock"></fa-icon>
                 <span>Reservar</span>
               </button>

@@ -45,6 +45,9 @@ class VehiculoResourceIT {
     private static final Boolean DEFAULT_HIBRIDO = false;
     private static final Boolean UPDATED_HIBRIDO = true;
 
+    private static final Boolean DEFAULT_RESERVADO = false;
+    private static final Boolean UPDATED_RESERVADO = true;
+
     private static final String ENTITY_API_URL = "/api/vehiculos";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -74,7 +77,8 @@ class VehiculoResourceIT {
             .marcaName(DEFAULT_MARCA_NAME)
             .precio(DEFAULT_PRECIO)
             .tipo(DEFAULT_TIPO)
-            .hibrido(DEFAULT_HIBRIDO);
+            .hibrido(DEFAULT_HIBRIDO)
+            .reservado(DEFAULT_RESERVADO);
         return vehiculo;
     }
 
@@ -90,7 +94,8 @@ class VehiculoResourceIT {
             .marcaName(UPDATED_MARCA_NAME)
             .precio(UPDATED_PRECIO)
             .tipo(UPDATED_TIPO)
-            .hibrido(UPDATED_HIBRIDO);
+            .hibrido(UPDATED_HIBRIDO)
+            .reservado(UPDATED_RESERVADO);
         return vehiculo;
     }
 
@@ -117,6 +122,7 @@ class VehiculoResourceIT {
         assertThat(testVehiculo.getPrecio()).isEqualTo(DEFAULT_PRECIO);
         assertThat(testVehiculo.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testVehiculo.getHibrido()).isEqualTo(DEFAULT_HIBRIDO);
+        assertThat(testVehiculo.getReservado()).isEqualTo(DEFAULT_RESERVADO);
     }
 
     @Test
@@ -204,7 +210,8 @@ class VehiculoResourceIT {
             .andExpect(jsonPath("$.[*].marcaName").value(hasItem(DEFAULT_MARCA_NAME)))
             .andExpect(jsonPath("$.[*].precio").value(hasItem(DEFAULT_PRECIO.doubleValue())))
             .andExpect(jsonPath("$.[*].tipo").value(hasItem(DEFAULT_TIPO.toString())))
-            .andExpect(jsonPath("$.[*].hibrido").value(hasItem(DEFAULT_HIBRIDO.booleanValue())));
+            .andExpect(jsonPath("$.[*].hibrido").value(hasItem(DEFAULT_HIBRIDO.booleanValue())))
+            .andExpect(jsonPath("$.[*].reservado").value(hasItem(DEFAULT_RESERVADO.booleanValue())));
     }
 
     @Test
@@ -223,7 +230,8 @@ class VehiculoResourceIT {
             .andExpect(jsonPath("$.marcaName").value(DEFAULT_MARCA_NAME))
             .andExpect(jsonPath("$.precio").value(DEFAULT_PRECIO.doubleValue()))
             .andExpect(jsonPath("$.tipo").value(DEFAULT_TIPO.toString()))
-            .andExpect(jsonPath("$.hibrido").value(DEFAULT_HIBRIDO.booleanValue()));
+            .andExpect(jsonPath("$.hibrido").value(DEFAULT_HIBRIDO.booleanValue()))
+            .andExpect(jsonPath("$.reservado").value(DEFAULT_RESERVADO.booleanValue()));
     }
 
     @Test
@@ -250,7 +258,8 @@ class VehiculoResourceIT {
             .marcaName(UPDATED_MARCA_NAME)
             .precio(UPDATED_PRECIO)
             .tipo(UPDATED_TIPO)
-            .hibrido(UPDATED_HIBRIDO);
+            .hibrido(UPDATED_HIBRIDO)
+            .reservado(UPDATED_RESERVADO);
 
         restVehiculoMockMvc
             .perform(
@@ -269,6 +278,7 @@ class VehiculoResourceIT {
         assertThat(testVehiculo.getPrecio()).isEqualTo(UPDATED_PRECIO);
         assertThat(testVehiculo.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testVehiculo.getHibrido()).isEqualTo(UPDATED_HIBRIDO);
+        assertThat(testVehiculo.getReservado()).isEqualTo(UPDATED_RESERVADO);
     }
 
     @Test
@@ -339,7 +349,7 @@ class VehiculoResourceIT {
         Vehiculo partialUpdatedVehiculo = new Vehiculo();
         partialUpdatedVehiculo.setId(vehiculo.getId());
 
-        partialUpdatedVehiculo.modeloName(UPDATED_MODELO_NAME);
+        partialUpdatedVehiculo.modeloName(UPDATED_MODELO_NAME).reservado(UPDATED_RESERVADO);
 
         restVehiculoMockMvc
             .perform(
@@ -358,6 +368,7 @@ class VehiculoResourceIT {
         assertThat(testVehiculo.getPrecio()).isEqualTo(DEFAULT_PRECIO);
         assertThat(testVehiculo.getTipo()).isEqualTo(DEFAULT_TIPO);
         assertThat(testVehiculo.getHibrido()).isEqualTo(DEFAULT_HIBRIDO);
+        assertThat(testVehiculo.getReservado()).isEqualTo(UPDATED_RESERVADO);
     }
 
     @Test
@@ -377,7 +388,8 @@ class VehiculoResourceIT {
             .marcaName(UPDATED_MARCA_NAME)
             .precio(UPDATED_PRECIO)
             .tipo(UPDATED_TIPO)
-            .hibrido(UPDATED_HIBRIDO);
+            .hibrido(UPDATED_HIBRIDO)
+            .reservado(UPDATED_RESERVADO);
 
         restVehiculoMockMvc
             .perform(
@@ -396,6 +408,7 @@ class VehiculoResourceIT {
         assertThat(testVehiculo.getPrecio()).isEqualTo(UPDATED_PRECIO);
         assertThat(testVehiculo.getTipo()).isEqualTo(UPDATED_TIPO);
         assertThat(testVehiculo.getHibrido()).isEqualTo(UPDATED_HIBRIDO);
+        assertThat(testVehiculo.getReservado()).isEqualTo(UPDATED_RESERVADO);
     }
 
     @Test
