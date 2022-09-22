@@ -11,6 +11,7 @@ import { ASC, DESC, SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/conf
 import { EntityArrayResponseType, VehiculoService } from '../service/vehiculo.service';
 import { VehiculoDeleteDialogComponent } from '../delete/vehiculo-delete-dialog.component';
 import { ParseLinks } from 'app/core/util/parse-links.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'jhi-vehiculo',
@@ -160,5 +161,11 @@ export class VehiculoComponent implements OnInit {
     } else {
       return [predicate + ',' + ascendingQueryParam];
     }
+  }
+
+  protected reservar(vehiculo: IVehiculo): void {
+    this.vehiculoService.reservarVehiculo(vehiculo.id).subscribe({
+      next: () => this.load(),
+    });
   }
 }

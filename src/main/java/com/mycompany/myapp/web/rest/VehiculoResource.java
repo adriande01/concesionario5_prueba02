@@ -175,6 +175,23 @@ public class VehiculoResource {
     }
 
     /**
+     * {@code GET  /vehiculos/:id} : get the "id" vehiculo.
+     *
+     * @param id the id of the vehiculo to retrieve.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the vehiculo, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/vehiculos/reservar/{id}")
+    public ResponseEntity<Vehiculo> reservarVehiculo(@PathVariable Long id) {
+        log.debug("REST request to get Vehiculo : {}", id);
+        Optional<Vehiculo> vehiculo = vehiculoRepository.findById(id);
+        if (vehiculo.isPresent()) { //Si el obj existe y no hay un null en optional
+            vehiculo.get().setReservado(!vehiculo.get().getReservado()); //toggle boton
+            vehiculoRepository.save(vehiculo.get()); //vehiculo.get() ==> vehiculo no optional
+        }
+        return ResponseUtil.wrapOrNotFound(vehiculo);
+    }
+
+    /**
      * {@code DELETE  /vehiculos/:id} : delete the "id" vehiculo.
      *
      * @param id the id of the vehiculo to delete.

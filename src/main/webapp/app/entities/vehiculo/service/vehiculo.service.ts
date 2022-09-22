@@ -34,6 +34,10 @@ export class VehiculoService {
     return this.http.get<IVehiculo>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  reservarVehiculo(id: number): Observable<EntityResponseType> {
+    return this.http.get<IVehiculo>(`${this.resourceUrl}/reservar/${id}`, { observe: 'response' });
+  }
+
   query(req?: any): Observable<EntityArrayResponseType> {
     const options = createRequestOption(req);
     return this.http.get<IVehiculo[]>(this.resourceUrl, { params: options, observe: 'response' });

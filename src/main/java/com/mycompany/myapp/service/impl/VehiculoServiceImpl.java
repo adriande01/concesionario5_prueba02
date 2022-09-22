@@ -104,4 +104,23 @@ public class VehiculoServiceImpl implements VehiculoService {
         log.debug("Request to delete Vehiculo : {}", id);
         vehiculoRepository.deleteById(id);
     }
+
+    //Funcion Principal (Boton Reservar) "Invertir Reserva"
+    public Optional<Vehiculo> invertirReserva(long id) {
+        Optional<Vehiculo> vehiculo = findOne(id);
+        if (vehiculo.isPresent()) {
+            boolean reservado = vehiculo.get().getReservado();
+            if (reservado) {
+                vehiculo.get().setReservado(false);
+                vehiculoRepository.save(vehiculo.get());
+                return vehiculo;
+            } else {
+                vehiculo.get().setReservado(true);
+                vehiculoRepository.save(vehiculo.get());
+                return vehiculo;
+            }
+        } else {
+            return Optional.empty();
+        }
+    }
 }
