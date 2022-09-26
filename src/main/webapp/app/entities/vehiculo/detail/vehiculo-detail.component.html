@@ -38,6 +38,10 @@
         <dd>
           <span>{{ vehiculo.reservado }}</span>
         </dd>
+        <dt><span jhiTranslate="concesionario5App.vehiculo.autoShift">Auto Shift</span></dt>
+        <dd>
+          <span>{{ vehiculo.autoShift ? 'SI' : 'NO' }}</span>
+        </dd>
       </dl>
 
       <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

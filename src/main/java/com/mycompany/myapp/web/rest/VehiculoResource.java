@@ -161,6 +161,18 @@ public class VehiculoResource {
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
+    @GetMapping("/vehiculos/no-disponibles")
+    public List<Vehiculo> getAllVehiculosNoDisponibles() {
+        log.debug("REST request to get all Vehiculos");
+        return vehiculoRepository.findVehiculosNoDisponibles();
+    }
+
+    @GetMapping("/vehiculos/disponibles")
+    public List<Vehiculo> getAllVehiculosDisponibles() {
+        log.debug("REST request to get all Vehiculos where venta is null");
+        return vehiculoRepository.findAllByVentaIsNullAndReservadoFalse();
+    }
+
     /**
      * {@code GET  /vehiculos/:id} : get the "id" vehiculo.
      *

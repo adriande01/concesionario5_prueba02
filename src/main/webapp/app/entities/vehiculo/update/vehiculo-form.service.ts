@@ -14,7 +14,7 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type VehiculoFormGroupInput = IVehiculo | PartialWithRequiredKeyOf<NewVehiculo>;
 
-type VehiculoFormDefaults = Pick<NewVehiculo, 'id' | 'hibrido' | 'reservado'>;
+type VehiculoFormDefaults = Pick<NewVehiculo, 'id' | 'hibrido' | 'reservado' | 'autoShift'>;
 
 type VehiculoFormGroupContent = {
   id: FormControl<IVehiculo['id'] | NewVehiculo['id']>;
@@ -24,6 +24,7 @@ type VehiculoFormGroupContent = {
   tipo: FormControl<IVehiculo['tipo']>;
   hibrido: FormControl<IVehiculo['hibrido']>;
   reservado: FormControl<IVehiculo['reservado']>;
+  autoShift: FormControl<IVehiculo['autoShift']>;
 };
 
 export type VehiculoFormGroup = FormGroup<VehiculoFormGroupContent>;
@@ -55,6 +56,7 @@ export class VehiculoFormService {
       tipo: new FormControl(vehiculoRawValue.tipo),
       hibrido: new FormControl(vehiculoRawValue.hibrido),
       reservado: new FormControl(vehiculoRawValue.reservado),
+      autoShift: new FormControl(vehiculoRawValue.autoShift),
     });
   }
 
@@ -77,6 +79,7 @@ export class VehiculoFormService {
       id: null,
       hibrido: false,
       reservado: false,
+      autoShift: false,
     };
   }
 }

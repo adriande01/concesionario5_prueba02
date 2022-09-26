@@ -59,7 +59,9 @@
             [compareWith]="compareVehiculo"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="vehiculoOption" *ngFor="let vehiculoOption of vehiculosCollection">{{ vehiculoOption.id }}</option>
+            <option [ngValue]="vehiculoOption" *ngFor="let vehiculoOption of vehiculosCollection">
+              {{ vehiculoOption.id }}. {{ vehiculoOption.marcaName }} : {{ vehiculoOption.modeloName }}
+            </option>
           </select>
         </div>
 
@@ -74,7 +76,9 @@
             [compareWith]="compareCliente"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="clienteOption" *ngFor="let clienteOption of clientesSharedCollection">{{ clienteOption.id }}</option>
+            <option [ngValue]="clienteOption" *ngFor="let clienteOption of clientesSharedCollection">
+              {{ clienteOption.id }}. {{ clienteOption.firstName }} {{ clienteOption.lastName }}
+            </option>
           </select>
         </div>
 
@@ -89,7 +93,9 @@
             [compareWith]="compareVendedor"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="vendedorOption" *ngFor="let vendedorOption of vendedorsSharedCollection">{{ vendedorOption.id }}</option>
+            <option [ngValue]="vendedorOption" *ngFor="let vendedorOption of vendedorsSharedCollection">
+              {{ vendedorOption.id }}. {{ vendedorOption.firstName }} {{ vendedorOption.lastName }}
+            </option>
           </select>
         </div>
       </div>

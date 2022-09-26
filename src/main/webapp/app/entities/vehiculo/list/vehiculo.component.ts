@@ -19,7 +19,7 @@ import { ThisReceiver } from '@angular/compiler';
   styleUrls: ['./vehiculo.component.scss'],
 })
 export class VehiculoComponent implements OnInit {
-  vehiculos?: IVehiculo[];
+  vehiculos?: IVehiculo[]; //lISTA QUE SE MUESTRA EN PANTALLA
   isLoading = false;
 
   predicate = 'id';
@@ -80,6 +80,24 @@ export class VehiculoComponent implements OnInit {
     });
   }
 
+  loadDisponibles(): void {
+    this.vehiculoService.getDisponibles().subscribe({
+      next: (res: EntityArrayResponseType) => {
+        if (res.body != null) {
+          this.onSuccess(res.body);
+        }
+      },
+    });
+  }
+
+  loadNoDisponibles(): void {
+    this.vehiculoService.getNoDisponibles().subscribe({
+      next: (res: EntityArrayResponseType) => {
+        this.onResponseSuccess(res);
+      },
+    });
+  }
+
   navigateToWithComponentValues(): void {
     this.handleNavigation(this.page, this.predicate, this.ascending);
   }
@@ -104,6 +122,10 @@ export class VehiculoComponent implements OnInit {
   protected onResponseSuccess(response: EntityArrayResponseType): void {
     this.fillComponentAttributesFromResponseHeader(response.headers);
     const dataFromBody = this.fillComponentAttributesFromResponseBody(response.body);
+    this.vehiculos = dataFromBody;
+  }
+
+  protected onSuccess(dataFromBody: IVehiculo[]): void {
     this.vehiculos = dataFromBody;
   }
 
@@ -141,6 +163,11 @@ export class VehiculoComponent implements OnInit {
     return this.vehiculoService.query(queryObject).pipe(tap(() => (this.isLoading = false)));
   }
 
+  protected queryBackendDisponible(): Observable<EntityArrayResponseType> {
+    this.isLoading = true;
+    return this.vehiculoService.getDisponibles().pipe(tap(() => (this.isLoading = false)));
+  }
+
   protected handleNavigation(page = this.page, predicate?: string, ascending?: boolean): void {
     const queryParamsObj = {
       page,
@@ -165,7 +192,7 @@ export class VehiculoComponent implements OnInit {
 
   protected reservar(vehiculo: IVehiculo): void {
     this.vehiculoService.reservarVehiculo(vehiculo.id).subscribe({
-      next: () => this.load(),
+      next: () => this.reset(),
     });
   }
 }

@@ -43,6 +43,16 @@ export class VehiculoService {
     return this.http.get<IVehiculo[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
+  getDisponibles(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IVehiculo[]>(`${this.resourceUrl}/disponibles`, { params: options, observe: 'response' });
+  }
+
+  getNoDisponibles(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.http.get<IVehiculo[]>(`${this.resourceUrl}/no-disponibles`, { params: options, observe: 'response' });
+  }
+
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
